@@ -5,6 +5,7 @@ Thank you for your interest in contributing to this project! This document provi
 ## 🎯 Project Focus
 
 This plugin is specifically designed for:
+
 - **Tapo P110 Smart Plugs** (not P100 or other models)
 - **Firmware 1.1.3+** (Build 240523 Rel.175054 and newer)
 - **Python 3.11+** compatibility
@@ -61,6 +62,7 @@ When reporting issues, please include:
 ## 🔧 Development Setup
 
 ### Prerequisites
+
 - Python 3.11 or newer
 - Git
 - A Tapo P110 device for testing
@@ -68,18 +70,21 @@ When reporting issues, please include:
 ### Setup Instructions
 
 1. **Clone the repository:**
+
    ```bash
-   git clone https://github.com/yourusername/OctoPrint-PSUControl-Tapo-P110.git
+   git clone https://github.com/gaurav-pangam/OctoPrint-PSUControl-Tapo-P110.git
    cd OctoPrint-PSUControl-Tapo-P110
    ```
 
 2. **Create a virtual environment:**
+
    ```bash
    python3.11 -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
 3. **Install dependencies:**
+
    ```bash
    pip install -r requirements.txt
    ```
@@ -92,12 +97,15 @@ When reporting issues, please include:
 ## 🧪 Testing
 
 ### Test Script
+
 Use the included test script to verify functionality:
+
 ```bash
 python test_plugin.py
 ```
 
 ### Manual Testing
+
 1. Install the plugin in a test OctoPrint instance
 2. Configure with your P110 credentials
 3. Test power on/off functionality
@@ -107,12 +115,14 @@ python test_plugin.py
 ## 📝 Code Style
 
 ### Python Code
+
 - Follow PEP 8 style guidelines
 - Use meaningful variable and function names
 - Add docstrings for functions and classes
 - Keep lines under 100 characters when possible
 
 ### Comments
+
 - Use clear, concise comments
 - Explain "why" not just "what"
 - Update comments when code changes
@@ -158,6 +168,7 @@ Fixes #[issue number]
 ## 🚀 Release Process
 
 Releases are handled by the maintainers and follow semantic versioning:
+
 - **Major** (X.0.0): Breaking changes
 - **Minor** (0.X.0): New features, backward compatible
 - **Patch** (0.0.X): Bug fixes, backward compatible
@@ -182,6 +193,7 @@ By contributing, you agree that your contributions will be licensed under the AG
 ## 🙏 Recognition
 
 Contributors will be recognized in:
+
 - README.md contributors section
 - Release notes
 - GitHub contributors page

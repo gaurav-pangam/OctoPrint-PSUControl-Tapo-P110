@@ -23,15 +23,17 @@ Adds Tapo P110 Smart Plug support to OctoPrint-PSUControl as a sub-plugin with e
 ## 🚀 Installation
 
 ### Method 1: Plugin Manager (Recommended)
+
 1. Open OctoPrint Settings
 2. Go to Plugin Manager
 3. Click "Get More..."
-4. Enter this URL: `https://github.com/yourusername/OctoPrint-PSUControl-Tapo-P110/archive/main.zip`
+4. Enter this URL: `https://github.com/gaurav-pangam/OctoPrint-PSUControl-Tapo-P110/archive/main.zip`
 5. Click "Install"
 
 ### Method 2: Command Line
+
 ```bash
-pip install "https://github.com/yourusername/OctoPrint-PSUControl-Tapo-P110/archive/main.zip"
+pip install "https://github.com/gaurav-pangam/OctoPrint-PSUControl-Tapo-P110/archive/main.zip"
 ```
 
 ## ⚙️ Configuration
@@ -49,12 +51,12 @@ pip install "https://github.com/yourusername/OctoPrint-PSUControl-Tapo-P110/arch
 
 ## 🔧 Settings
 
-| Setting | Description |
-|---------|-------------|
-| **Device IP Address** | Static IP of your P110 (e.g., 192.168.1.100) |
-| **Tapo Username** | Your Tapo account email |
-| **Tapo Password** | Your Tapo account password |
-| **Enable Energy Monitoring** | Log power consumption data |
+| Setting                      | Description                                  |
+| ---------------------------- | -------------------------------------------- |
+| **Device IP Address**        | Static IP of your P110 (e.g., 192.168.1.100) |
+| **Tapo Username**            | Your Tapo account email                      |
+| **Tapo Password**            | Your Tapo account password                   |
+| **Enable Energy Monitoring** | Log power consumption data                   |
 
 ## 📊 P110 Specific Features
 
@@ -74,16 +76,19 @@ This plugin takes advantage of the P110's advanced features:
 ## 🛠️ Troubleshooting
 
 ### Connection Issues
+
 - Ensure P110 is on the same network as OctoPrint
 - Use a static IP or DHCP reservation for your P110
 - Verify credentials match your Tapo mobile app login
 
 ### Plugin Not Appearing
+
 - Make sure PSU Control plugin is installed first
 - Restart OctoPrint after installation
 - Check OctoPrint logs for error messages
 
 ### Energy Monitoring Not Working
+
 - Verify you have a P110 (not P100 or other model)
 - Check that energy monitoring is enabled in settings
 - Look for power consumption data in OctoPrint logs
@@ -91,6 +96,7 @@ This plugin takes advantage of the P110's advanced features:
 ## 📝 Logging
 
 The plugin provides detailed logging including:
+
 - Connection status and device information
 - Power state changes
 - Current power consumption (when enabled)
@@ -98,9 +104,9 @@ The plugin provides detailed logging including:
 
 ## 🤝 Support
 
-- **Issues**: Report bugs on [GitHub Issues](https://github.com/yourusername/OctoPrint-PSUControl-Tapo-P110/issues)
+- **Issues**: Report bugs on [GitHub Issues](https://github.com/gaurav-pangam/OctoPrint-PSUControl-Tapo-P110/issues)
 - **Community**: Get help at [OctoPrint Community Forums](https://community.octoprint.org)
-- **Documentation**: Check the [Wiki](https://github.com/yourusername/OctoPrint-PSUControl-Tapo-P110/wiki)
+- **Documentation**: Check the [Wiki](https://github.com/gaurav-pangam/OctoPrint-PSUControl-Tapo-P110/wiki)
 
 ## 📄 License
 
