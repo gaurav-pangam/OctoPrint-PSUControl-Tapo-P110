@@ -54,10 +54,10 @@ def params():
 	zip_safe = False
 
 	# Read the requirements from our requirements.txt file
-	install_requires = open("requirements.txt").read().split("\n")
+	install_requires = [line.strip() for line in open("requirements.txt").read().split("\n") if line.strip()]
 
 	# Python version requirement
-	python_requires = ">=3.11"
+	python_requires = ">=3.7"
 
 	# Hook the plugin into the "octoprint.plugin" entry point, mapping the plugin_identifier to the plugin_package.
 	# That way OctoPrint will be able to find the plugin and load it.

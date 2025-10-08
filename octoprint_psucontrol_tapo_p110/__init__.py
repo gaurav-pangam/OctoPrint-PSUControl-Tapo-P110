@@ -43,7 +43,7 @@ class PSUControl_Tapo_P110(octoprint.plugin.StartupPlugin,
         pass
 
     def _reconnect(self):
-        self._logger.info(f"Connecting to Tapo P110 device at {self.config['address']}")
+        self._logger.info("Connecting to Tapo P110 device at {}".format(self.config['address']))
         try:
             tapo.log = self._logger
             self.device = P110(self.config["address"], self.config["username"], self.config["password"])
@@ -53,16 +53,16 @@ class PSUControl_Tapo_P110(octoprint.plugin.StartupPlugin,
             device_model = self.device_info.get('model', 'Unknown')
             firmware_version = self.device_info.get('fw_ver', 'Unknown')
 
-            self._logger.info(f"Connected to {device_model} with firmware {firmware_version}")
+            self._logger.info("Connected to {} with firmware {}".format(device_model, firmware_version))
 
             # Verify it's a P110
             if device_model != 'P110':
-                self._logger.warning(f"This plugin is specifically designed for P110 devices. Connected device is: {device_model}")
+                self._logger.warning("This plugin is specifically designed for P110 devices. Connected device is: {}".format(device_model))
             
             return True
             
         except Exception as e:
-            self._logger.error(f"Failed to connect to Tapo P110: {e}")
+            self._logger.error("Failed to connect to Tapo P110: {}".format(e))
             self.device = None
             self.device_info = None
             return False
@@ -82,11 +82,11 @@ class PSUControl_Tapo_P110(octoprint.plugin.StartupPlugin,
             self._logger.debug("{}: {}".format(k, v))
         
         try:
-            self._logger.info(f"Config: {self.config}")
+            self._logger.info("Config: {}".format(self.config))
             if self.config['address'] and self.config['username'] and self.config['password']:
                 self._reconnect()
         except Exception as e:
-            self._logger.exception(f"Failed to connect to Tapo P110 device: {e}")
+            self._logger.exception("Failed to connect to Tapo P110 device: {}".format(e))
 
     def on_startup(self, host, port):
         psucontrol_helpers = self._plugin_manager.get_helpers("psucontrol")
@@ -108,7 +108,7 @@ class PSUControl_Tapo_P110(octoprint.plugin.StartupPlugin,
             self.last_status = True
             self._logger.info("P110 turned ON successfully")
         except Exception as e:
-            self._logger.exception(f"Failed to switch PSU On: {e}")
+            self._logger.exception("Failed to switch PSU On: {}".format(e))
             self.device = None
             raise
 
@@ -123,7 +123,7 @@ class PSUControl_Tapo_P110(octoprint.plugin.StartupPlugin,
             self.last_status = False
             self._logger.info("P110 turned OFF successfully")
         except Exception as e:
-            self._logger.exception(f"Failed to switch PSU Off: {e}")
+            self._logger.exception("Failed to switch PSU Off: {}".format(e))
             self.device = None
             raise
 
@@ -141,12 +141,12 @@ class PSUControl_Tapo_P110(octoprint.plugin.StartupPlugin,
                 try:
                     energy_usage = self.device.get_energy_usage()
                     current_power = energy_usage.get('current_power', 0)
-                    self._logger.debug(f"Current power consumption: {current_power} mW")
+                    self._logger.debug("Current power consumption: {} mW".format(current_power))
                 except Exception as e:
-                    self._logger.debug(f"Failed to get energy usage: {e}")
+                    self._logger.debug("Failed to get energy usage: {}".format(e))
 
         except Exception as e:
-            self._logger.exception(f"Failed to get PSU state: {e}")
+            self._logger.exception("Failed to get PSU state: {}".format(e))
             self.device = None
             raise
 
@@ -180,7 +180,7 @@ class PSUControl_Tapo_P110(octoprint.plugin.StartupPlugin,
         )
 
 __plugin_name__ = "PSU Control - Tapo P110"
-__plugin_pythoncompat__ = ">=3.11,<4"
+__plugin_pythoncompat__ = ">=3.7,<4"
 
 def __plugin_load__():
     global __plugin_implementation__
