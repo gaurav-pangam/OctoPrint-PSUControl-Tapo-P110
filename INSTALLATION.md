@@ -45,8 +45,11 @@ This guide provides detailed installation instructions for the OctoPrint PSU Con
    - Wait for installation to complete
 
 4. **Restart OctoPrint**
+
    - Click "Restart" when prompted
    - Wait for OctoPrint to restart
+
+**Note:** All dependencies are now automatically installed with the plugin!
 
 ### Method 2: Command Line Installation
 

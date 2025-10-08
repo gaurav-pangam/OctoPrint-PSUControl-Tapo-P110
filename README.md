@@ -36,6 +36,8 @@ Adds Tapo P110 Smart Plug support to OctoPrint-PSUControl as a sub-plugin with e
 pip install "https://github.com/gaurav-pangam/OctoPrint-PSUControl-Tapo-P110/archive/main.zip"
 ```
 
+**Note:** All dependencies are now automatically installed with the plugin!
+
 ## ⚙️ Configuration
 
 1. **Install PSU Control** plugin first (if not already installed)

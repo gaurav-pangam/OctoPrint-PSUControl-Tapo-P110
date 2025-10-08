@@ -7,7 +7,8 @@ __license__ = "GNU Affero General Public License http://www.gnu.org/licenses/agp
 __copyright__ = "Copyright (C) 2025 Gaurav Pangam - Released under terms of the AGPLv3 License"
 
 import octoprint.plugin
-from PyP100 import PyP110
+from .tapo import P110
+from . import tapo
 
 class PSUControl_Tapo_P110(octoprint.plugin.StartupPlugin,
                            octoprint.plugin.RestartNeedingPlugin,
@@ -44,22 +45,16 @@ class PSUControl_Tapo_P110(octoprint.plugin.StartupPlugin,
     def _reconnect(self):
         self._logger.info(f"Connecting to Tapo P110 device at {self.config['address']}")
         try:
-            self.device = PyP110.P110(self.config["address"], self.config["username"], self.config["password"])
-            
-            # Perform handshake and login
-            self._logger.debug("Performing handshake...")
-            self.device.handshake()
-            
-            self._logger.debug("Logging in...")
-            self.device.login()
-            
+            tapo.log = self._logger
+            self.device = P110(self.config["address"], self.config["username"], self.config["password"])
+
             # Get device info to verify it's a P110
-            self.device_info = self.device.getDeviceInfo()
+            self.device_info = self.device._get_device_info()
             device_model = self.device_info.get('model', 'Unknown')
             firmware_version = self.device_info.get('fw_ver', 'Unknown')
-            
+
             self._logger.info(f"Connected to {device_model} with firmware {firmware_version}")
-            
+
             # Verify it's a P110
             if device_model != 'P110':
                 self._logger.warning(f"This plugin is specifically designed for P110 devices. Connected device is: {device_model}")
@@ -109,7 +104,7 @@ class PSUControl_Tapo_P110(octoprint.plugin.StartupPlugin,
         
         self._logger.debug("Switching PSU On")
         try:
-            self.device.turnOn()
+            self.device.turn_on()
             self.last_status = True
             self._logger.info("P110 turned ON successfully")
         except Exception as e:
@@ -124,7 +119,7 @@ class PSUControl_Tapo_P110(octoprint.plugin.StartupPlugin,
         
         self._logger.debug("Switching PSU Off")
         try:
-            self.device.turnOff()
+            self.device.turn_off()
             self.last_status = False
             self._logger.info("P110 turned OFF successfully")
         except Exception as e:
@@ -139,18 +134,17 @@ class PSUControl_Tapo_P110(octoprint.plugin.StartupPlugin,
         
         self._logger.debug("Getting PSU state")
         try:
-            device_info = self.device.getDeviceInfo()
-            self.last_status = device_info.get('device_on', False)
-            
+            self.last_status = self.device.get_status()
+
             # Log energy usage if enabled
             if self.config.get('enable_energy_monitoring', True):
                 try:
-                    energy_usage = self.device.getEnergyUsage()
+                    energy_usage = self.device.get_energy_usage()
                     current_power = energy_usage.get('current_power', 0)
                     self._logger.debug(f"Current power consumption: {current_power} mW")
                 except Exception as e:
                     self._logger.debug(f"Failed to get energy usage: {e}")
-                    
+
         except Exception as e:
             self._logger.exception(f"Failed to get PSU state: {e}")
             self.device = None
