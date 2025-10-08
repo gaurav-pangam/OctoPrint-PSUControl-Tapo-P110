@@ -54,12 +54,7 @@ def params():
 	zip_safe = False
 
 	# Read the requirements from our requirements.txt file
-	install_requires = []
-	with open("requirements.txt", "r") as f:
-		for line in f:
-			line = line.strip()
-			if line and not line.startswith("#"):
-				install_requires.append(line)
+	install_requires = open("requirements.txt").read().split("\n")
 
 	# Python version requirement
 	python_requires = ">=3.11"

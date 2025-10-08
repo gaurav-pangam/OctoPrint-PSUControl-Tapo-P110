@@ -117,6 +117,7 @@ class OldProtocol:
         self._create_keypair()
         self.key = None
         self.iv = None
+        self.token = None
 
     def _create_keypair(self):
         if self.keypair_file and os.path.exists(self.keypair_file):
