@@ -53,14 +53,11 @@ def params():
 	# this plugin is not zip_safe.
 	zip_safe = False
 
-	# Read the requirements from our requirements.txt file
-	install_requires = []
-
-	with open("requirements.txt", "r") as f:
-		for line in f:
-			line = line.strip()
-			if line and not line.startswith("#"):
-				install_requires.append(line)
+	# Define our requirements directly
+	install_requires = [
+		"requests>=2.24.0",
+		"PyP100 @ git+https://github.com/almottier/TapoP100.git@main"
+	]
 
 	# Python version requirement
 	python_requires = ">=3.11"
