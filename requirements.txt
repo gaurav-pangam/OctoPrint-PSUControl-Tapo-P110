@@ -1,3 +1,2 @@
-OctoPrint
 requests>=2.24.0
 git+https://github.com/almottier/TapoP100.git@main
