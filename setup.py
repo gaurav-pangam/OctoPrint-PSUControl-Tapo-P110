@@ -8,9 +8,9 @@ plugin_package = "octoprint_%s" % plugin_identifier
 plugin_name = "OctoPrint-PSUControl-Tapo-P110"
 plugin_version = "1.0.0"
 plugin_description = "Adds Tapo P110 Smart Plug support to OctoPrint-PSUControl as a sub-plugin - Specifically designed for P110 with firmware 1.1.3+"
-plugin_author = "Your Name"
-plugin_author_email = "your.email@example.com"
-plugin_url = "https://github.com/yourusername/OctoPrint-PSUControl-Tapo-P110"
+plugin_author = "Gaurav Pangam"
+plugin_author_email = "pangamgaurav20@gmail.com"
+plugin_url = "https://github.com/gaurav-pangam/OctoPrint-PSUControl-Tapo-P110"
 plugin_license = "AGPLv3"
 plugin_additional_data = []
 

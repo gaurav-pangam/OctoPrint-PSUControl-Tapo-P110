@@ -2,9 +2,9 @@
 from __future__ import absolute_import
 import threading
 
-__author__ = "Your Name <your.email@example.com>"
+__author__ = "Gaurav Pangam <pangamgaurav20@gmail.com>"
 __license__ = "GNU Affero General Public License http://www.gnu.org/licenses/agpl.html"
-__copyright__ = "Copyright (C) 2025 Your Name - Released under terms of the AGPLv3 License"
+__copyright__ = "Copyright (C) 2025 Gaurav Pangam - Released under terms of the AGPLv3 License"
 
 import octoprint.plugin
 from PyP100 import PyP110
@@ -176,12 +176,12 @@ class PSUControl_Tapo_P110(octoprint.plugin.StartupPlugin,
 
                 # version check: github repository
                 type="github_release",
-                user="yourusername",
+                user="gaurav-pangam",
                 repo="OctoPrint-PSUControl-Tapo-P110",
                 current=self._plugin_version,
 
                 # update method: pip w/ dependency links
-                pip="https://github.com/yourusername/OctoPrint-PSUControl-Tapo-P110/archive/{target_version}.zip"
+                pip="https://github.com/gaurav-pangam/OctoPrint-PSUControl-Tapo-P110/archive/{target_version}.zip"
             )
         )
 
